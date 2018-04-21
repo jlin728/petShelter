@@ -1,0 +1,49 @@
+
+<h2>{{ headline }}</h2>
+
+<div class = "content">
+
+<form (submit) = "create()">
+        <h3>Name:</h3> <input 
+            type = "text" 
+            name = "pet.name" 
+            [(ngModel)] = "pet.name"
+            required
+            minlength = "3"
+            maxlength= "255"
+            #name = "ngModel"
+            >
+            <p *ngIf = "!name.valid && !name.pristine" style = "color:palevioletred; font-style: italic;">Please enter valid name</p>
+        
+            <h3>Type:</h3> <input 
+            type = "text" 
+            name = "pet.type" 
+            [(ngModel)] = "pet.type"
+            required
+            minlength = "3"
+            maxlength= "255"
+            #type = "ngModel"
+            >
+            <p *ngIf = "!type.valid && !type.pristine" style = "color:palevioletred; font-style: italic;">Please enter valid type</p>
+    
+        <h3>Description:</h3> <input 
+            type = "text" 
+            name = "pet.description" 
+            [(ngModel)] = "pet.description"
+            required
+            minlength = "3"
+            maxlength= "255"
+            #description = "ngModel"
+            >
+            <p *ngIf = "!description.valid && !description.pristine" style = "color:palevioletred; font-style: italic;">Please enter valid description</p>
+        
+        <h3>Skills (optional):</h3>
+        <ol>
+            <li><input type = "text" name = "pet.skill1" [(ngModel)] = "pet.skill1"></li>
+            <li><input type = "text" name = "pet.skill2" [(ngModel)] = "pet.skill2"></li>
+            <li><input type = "text" name = "pet.skill3" [(ngModel)] = "pet.skill3"></li>
+        </ol>
+        <input type ="submit" value = "Add Pet"> | <button><a href = "/">Cancel</a></button>
+
+</form> 
+</div>

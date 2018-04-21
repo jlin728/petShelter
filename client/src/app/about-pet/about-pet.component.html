@@ -1,0 +1,20 @@
+<div class = "about" *ngIf = "pet">
+<h2>{{ headline }}{{ pet.name }}</h2>
+<h3>Pet type:</h3> {{ pet.type }}
+<h3>Description:</h3> {{ pet.description }}
+<h3>Skills:</h3>
+<ol>
+<li>{{ pet.skill1 }}</li>
+<li>{{ pet.skill2 }}</li>
+<li>{{ pet.skill3 }}</li>
+</ol>
+
+<h3>Likes:</h3> {{ pet.likes }}
+
+<br><br>
+
+<form (submit)="like()"><input type="submit" value="Like"></form>
+<!-- <form *ngIf="pet._id" (submit)="destroy()"><input type="submit" value="Adopt"></form> -->
+<form (submit)="destroy()"><input type="submit" value = "Adopt"></form>
+
+</div>

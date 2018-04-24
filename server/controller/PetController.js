@@ -65,19 +65,23 @@ class PetController{
     }
 
     like(req, res) {
+        console.log("erver likes");
+        console.log(req.params.id);
         Pet.findOne({_id: req.params.id}, (err, pet)=> {
             if(err) {
                 console.log("Error finding pet");
                 res.json({errors: err})
             }
             else {
-                pet.likes =+ 1;
+                pet.likes += 1;
+                console.log(pet);
                 pet.save((err)=>{
                     if(err){
                         res.json({message: "Error updating pet", error: err})
+                    }else{
+                        res.json(pet);
                     }
                 })
-                res.json(pet);            
             }
         })
     }

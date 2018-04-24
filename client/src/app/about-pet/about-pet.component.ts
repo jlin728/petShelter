@@ -19,15 +19,21 @@ export class AboutPetComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.ps.find(params.id, (data) => {
         this.pet = data;
+        console.log(this.pet.likes);
       })
     });
   };
 
   like(){
-    this.ps.like(this.pet._id, (data)=>{
+    console.log("liking");
+    this.ps.like(this.pet, (data)=>{
+
       if(data.errors){
       }else{
-        this.router.navigate(["/"])
+        // console.log("liking");
+        console.log(this.pet.likes);
+        
+        // this.router.navigate(["/"])
       }
     });
   }

@@ -32,8 +32,9 @@ export class PetService {
     .subscribe(data=>cb(data));
   }
 
-  like(_id, cb){
-    this.http.put('/api/pets/like'+ _id, _id)
+  like(pet, cb){
+    console.log("pauls service");
+    this.http.put('/api/pets/like/'+ pet._id, pet)
     .subscribe(data=>cb(data));
   }
 
